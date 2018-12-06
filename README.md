@@ -12,6 +12,6 @@ First, build ToaruOS.
 
 Then run:
 
-    make BASE=/path/to/your/toaru-os/checkout
+    make BASE=/path/to/your/toaruos/checkout
 
 This will produce a `toaruos-grub.iso` which you can then burn to a CD, write to a hard disk, write to a USB stick, or boot with a virtual machine.

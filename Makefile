@@ -7,7 +7,10 @@ all: toaruos-grub.iso
 MODULES=$(patsubst ${BASE}/fatbase/%,cdrom/%.gz,$(wildcard ${BASE}/fatbase/mod/*.ko))
 GRUB_STUFF=cdrom/boot/grub/menus.cfg cdrom/boot/grub/grub.cfg cdrom/boot/grub/modules.cfg
 
-cdrom/%.gz: ${BASE}/fatbase/%
+directories:
+	mkdir -p cdrom/mod
+
+cdrom/%.gz: ${BASE}/fatbase/% | directories
 	cat $< | gzip > $@
 
 toaruos-grub.iso: cdrom/ramdisk.img.gz cdrom/kernel.gz ${MODULES} ${GRUB_STUFF}
